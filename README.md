@@ -6,6 +6,7 @@ It will simutanously generate a csv file in the same directory to store ping sta
 ## usage
 
 ```Shell
+chmod +x batch_ping.sh
 ./batch_ping.sh IPLIST_FILE
 ```
 *IPLIST_FILE* is the plain text file which stores the list of IPs to ping.
