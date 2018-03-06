@@ -16,16 +16,16 @@ do
     lag=$( sed -n 's/.*= [0-9]*\.[0-9]*\/\([0-9]*\.[0-9]*\).*/\1/p' <<< $stat )
     if [ -z $lag ]
     then
-        echo -en '                                                        \r'
+        echo -en '                                                           \r'
         echo -e "$ip\t\ttimeout"
     elif (( $( bc <<< "$pktloss == 0 && $lag < $minlag" ) ))
     then
         bestip=$ip
         minlag=$lag
-        echo -en '                                                        \r'
+        echo -en '                                                           \r'
         echo -e "$ip\t$lag ms\t$pktloss%"
     else
-        echo -en '                                                        \r'
+        echo -en '                                                           \r'
         echo -e "$ip\t$lag ms\t$pktloss%"
     fi
     echo "$ip,$lag,$pktloss">>"${1/%.*/_stat.csv}"
